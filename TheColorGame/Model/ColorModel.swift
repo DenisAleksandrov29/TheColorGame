@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct ColorModel {
+    var redValue: Double
+    var greenValue: Double
+    var blueValue: Double
+}

@@ -7,12 +7,32 @@
 
 import SwiftUI
 
-struct ColorViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class ColorViewModel: ObservableObject {
+    
+    enum ColorType {
+        case red, green, blue
     }
-}
-
-#Preview {
-    ColorViewModel()
+    
+    @Published var colorModel: ColorModel
+    
+    init() {
+        self.colorModel = ColorModel(
+            redValue: Double.random(in: 0...255),
+            greenValue: Double.random(in: 0...255),
+            blueValue: Double.random(in: 0...255)
+        )
+    }
+    
+    func updateColor(value: String, for color: ColorType) {
+        if let newValue = Double(value), newValue >= 0, newValue <= 255 {
+            switch color {
+            case .red:
+                colorModel.redValue = newValue
+            case .green:
+                colorModel.greenValue = newValue
+            case .blue:
+                colorModel.blueValue = newValue
+            }
+        }
+    }
 }

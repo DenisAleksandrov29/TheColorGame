@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		874E49712C8C72F8004A0D07 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E49702C8C72F8004A0D07 /* ColorModel.swift */; };
+		874E49732C8C732D004A0D07 /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E49722C8C732D004A0D07 /* ColorViewModel.swift */; };
+		874E49752C8C7363004A0D07 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E49742C8C7363004A0D07 /* SliderView.swift */; };
 		877FC7682C88E6250047DAE2 /* TheColorGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877FC7672C88E6250047DAE2 /* TheColorGameApp.swift */; };
 		877FC76A2C88E6250047DAE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877FC7692C88E6250047DAE2 /* ContentView.swift */; };
 		877FC76C2C88E6270047DAE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877FC76B2C88E6270047DAE2 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		874E49702C8C72F8004A0D07 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		874E49722C8C732D004A0D07 /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
+		874E49742C8C7363004A0D07 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		877FC7642C88E6250047DAE2 /* TheColorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheColorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		877FC7672C88E6250047DAE2 /* TheColorGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheColorGameApp.swift; sourceTree = "<group>"; };
 		877FC7692C88E6250047DAE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +38,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		874653692C8C6B670069356F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				874E49702C8C72F8004A0D07 /* ColorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8746536A2C8C6BAF0069356F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				874E49722C8C732D004A0D07 /* ColorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8746536B2C8C6BD30069356F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				877FC7692C88E6250047DAE2 /* ContentView.swift */,
+				874E49742C8C7363004A0D07 /* SliderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		877FC75B2C88E6250047DAE2 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				877FC7672C88E6250047DAE2 /* TheColorGameApp.swift */,
-				877FC7692C88E6250047DAE2 /* ContentView.swift */,
+				874653692C8C6B670069356F /* Model */,
+				8746536A2C8C6BAF0069356F /* ViewModel */,
+				8746536B2C8C6BD30069356F /* View */,
 				877FC76B2C88E6270047DAE2 /* Assets.xcassets */,
 				877FC76D2C88E6270047DAE2 /* Preview Content */,
 			);
@@ -139,6 +172,9 @@
 			files = (
 				877FC76A2C88E6250047DAE2 /* ContentView.swift in Sources */,
 				877FC7682C88E6250047DAE2 /* TheColorGameApp.swift in Sources */,
+				874E49732C8C732D004A0D07 /* ColorViewModel.swift in Sources */,
+				874E49712C8C72F8004A0D07 /* ColorModel.swift in Sources */,
+				874E49752C8C7363004A0D07 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
