@@ -57,6 +57,8 @@ struct ContentView: View {
 struct SliderView: View {
     var color: Color
     @Binding var value: Double
+    @State private var textValue: String = ""  // Промежуточное значение для TextField
+    @State private var showAlert = false  // Добавляем состояние для показа алерта
     @FocusState var isInputActive: Bool  // Переменная для отслеживания состояния фокуса
 
     var body: some View {
@@ -69,19 +71,38 @@ struct SliderView: View {
             
             Slider(value: $value, in: 0...255, step: 1, onEditingChanged: { _ in
                 value = value.clamped(to: 0...255)  // Ограничиваем значение диапазоном
+                textValue = "\(Int(value))"  // Синхронизируем текст с слайдером
             })
             .accentColor(color)
             
-            TextField("", value: $value, formatter: NumberFormatter())
+            TextField("", text: $textValue)
                 .frame(width: 50)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .focused($isInputActive)  // Привязываем состояние фокуса к полю ввода
-                .onSubmit {
-                    value = value.clamped(to: 0...255)  // Ограничиваем значение после ввода
+                .onChange(of: isInputActive) { oldValue, newValue in
+                    if !newValue {  // Когда клавиатура скрывается (Done нажата)
+                        if let newValue = Double(textValue), newValue >= 0 && newValue <= 255 {
+                            value = newValue  // Обновляем значение слайдера
+                        } else {
+                            textValue = "\(Int(value))"  // Возвращаем текущее значение, если введено некорректное
+                            showAlert = true  // Показываем алерт
+                        }
+                    }
                 }
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Некорректное значение"),
+                        message: Text("Введите число от 0 до 255."),
+                        dismissButton: .default(Text("Закрыть"))
+                    )
+                }
+
         }
         .padding(.horizontal)
+        .onAppear {
+            textValue = "\(Int(value))"  // Инициализируем textValue текущим значением слайдера
+        }
     }
 }
 
@@ -98,7 +119,8 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
 #Preview {
     ContentView()
 }
+
+
